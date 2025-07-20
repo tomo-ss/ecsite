@@ -30,7 +30,7 @@ table {
 
 #top {
 	width: 780px;
-	margin: 30px auto; /* 修正: スペースが抜けていました */
+	margin: 30px auto;
 	border: 1px solid #333;
 }
 
