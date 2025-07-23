@@ -21,17 +21,19 @@ body {
 	font-size: 12px;
 	color: #333;
 	background: #fff;
+	text-align: center; /* ここで本文を中央揃え */
 }
 
 table {
+	margin: 0 auto; /* テーブルを中央に配置 */
 	text-align: center;
-	margin: 0 auto;
 }
 
 #top {
 	width: 780px;
-	margin: 30px auto; /* スペース抜け修正 */
+	margin: 30px auto;
 	border: 1px solid #333;
+	text-align: center; /* 見出しの中央揃え */
 }
 
 #header, #footer {
@@ -42,8 +44,19 @@ table {
 
 #main {
 	width: 100%;
-	height: 500px;
+	height: auto;
+	text-align: center; /* main全体の中央揃え */
+	padding-bottom: 30px;
+}
+
+form {
 	text-align: center;
+	margin-top: 20px;
+}
+
+input[type="submit"] {
+	display: block;
+	margin: 20px auto;
 }
 </style>
 </head>
@@ -63,31 +76,23 @@ table {
 			<s:form action="BuyItemAction">
 				<table>
 					<tr>
-						<td colspan="2"><strong>商品名：</strong></td>
-						<td><s:property value="session.buyItem_name" /></td>
+						<td><strong>商品名：</strong></td>
+						<td><s:property value="#session.buyItem_name" /></td>
 					</tr>
 
 					<tr>
-						<td colspan="2"><strong>価格：</strong></td>
-						<td><s:property value="session.buyItem_price" /> 円</td>
+						<td><strong>価格：</strong></td>
+						<td><s:property value="#session.buyItem_price" /> 円</td>
 					</tr>
 
 					<tr>
-						<td colspan="2"><strong>購入個数：</strong></td>
-						<td><select name="count">
-								<option value="1" selected="selected">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-						</select></td>
+						<td><strong>購入個数：</strong></td>
+						<td><s:select name="count" list="{'1','2','3','4','5'}" /></td>
 					</tr>
 
 					<tr>
-						<td colspan="2"><strong>支払い方法：</strong></td>
-						<td><input type="radio" name="pay" value="1"
-							checked="checked" /> 現金 <input type="radio" name="pay" value="2" />
-							クレジットカード</td>
+						<td><strong>支払い方法：</strong></td>
+						<td><s:radio name="pay" list="{'現金','クレジットカード'}" /></td>
 					</tr>
 				</table>
 
